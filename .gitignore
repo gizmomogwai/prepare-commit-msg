@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/prepare-commit-msg
+prepare-commit-msg.so
+prepare-commit-msg.dylib
+prepare-commit-msg.dll
+prepare-commit-msg.a
+prepare-commit-msg.lib
+prepare-commit-msg-test-*
+*.exe
+*.o
+*.obj
+*.lst
