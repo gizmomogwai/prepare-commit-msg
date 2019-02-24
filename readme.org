@@ -1,0 +1,8 @@
+* prepare-commit-msg
+** Installation
+- dub build 
+- ./prepare-commit-msg install
+- Prepare a custom .git_commit_msg.txt file containing `#{}` replacements
+  - replacements can contain either:
+    - env[name] - for environment variable replacement
+    - command - for command replacements

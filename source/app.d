@@ -28,6 +28,7 @@ string replaceEnvironmentVariable(Captures!(string) m)
 
 int main(string[] args)
 {
+    stderr.writeln(args);
     auto file = args[1];
     if (file == "install")
     {
@@ -38,8 +39,10 @@ int main(string[] args)
     // template for normal commits, commit for amend
 
     auto sha = args.length == 4 ? args[3] : "";
-    if (commitType == "template")
+    switch (commitType)
     {
+    case "template":
+    case "commit":
         // dfmt off
         file
             .readText
@@ -48,6 +51,7 @@ int main(string[] args)
             .toFile(file);
         // dfmt on
         return 0;
+    default:
+        return 1;
     }
-    return 1;
 }
