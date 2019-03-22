@@ -32,7 +32,15 @@ int main(string[] args)
     auto file = args[1];
     if (file == "install")
     {
-        return execute(["cp", args[0], ".git/hooks/"]).status;
+        auto path = execute(["which", args[0]]);
+        if (path.status != 0)
+        {
+            throw new Exception("cannot get path to %s".format(args[0]));
+        }
+
+        auto cmd = ["cp", path.output.strip, ".git/hooks/"];
+        writeln(cmd);
+        return execute(cmd).status;
     }
 
     auto commitType = args[2];
