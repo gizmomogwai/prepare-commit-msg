@@ -16,16 +16,6 @@ string replaceShellCommand(Captures!(string) m)
     return res.output.strip;
 }
 
-string replaceEnvironmentVariable(Captures!(string) m)
-{
-    auto p = m["property"];
-    if (p !in environment)
-    {
-        throw new Exception("Cannot find environment variable %s".format(p));
-    }
-    return environment.get(p);
-}
-
 int main(string[] args)
 {
     stderr.writeln(args);
@@ -54,7 +44,6 @@ int main(string[] args)
         // dfmt off
         file
             .readText
-            .replaceAll!(replaceEnvironmentVariable)(regex("#\\{env\\[(?P<property>.*?)\\]\\}"))
             .replaceAll!(replaceShellCommand)(regex("#\\{(?P<command>.*?)\\}"))
             .toFile(file);
         // dfmt on

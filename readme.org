@@ -12,7 +12,7 @@
 #+NAME: example .git_commit_msg file
 #+BEGIN_SRC shell
 # If applied, this commit will... ################
-# Author: #{env[GIT_AUTHOR_NAME]} <#{env[GIT_AUTHOR_EMAIL]}> 
+# Author: #{printenv GIT_AUTHOR_NAME} <#{printenv GIT_AUTHOR_EMAIL}>
 
 # Explain why this change is being made ################################
 
