@@ -13,3 +13,4 @@ prepare-commit-msg-test-*
 *.o
 *.obj
 *.lst
+/readme.html

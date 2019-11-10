@@ -1,8 +1,21 @@
 * prepare-commit-msg
 ** Installation
 - dub build 
-- ./prepare-commit-msg install
-- Prepare a custom .git_commit_msg.txt file containing `#{}` replacements
+- put prepare-commit-msg to your path
+- run prepare-commit-msg install in any git repository
+- Prepare a custom local or global .git_commit_msg.txt file containing `#{}` replacements
   - replacements can contain either:
     - env[name] - for environment variable replacement
     - command - for command replacements
+
+** Example
+#+NAME: example .git_commit_msg file
+#+BEGIN_SRC shell
+# If applied, this commit will... ################
+# Author: #{env[GIT_AUTHOR_NAME]} <#{env[GIT_AUTHOR_EMAIL]}> 
+
+# Explain why this change is being made ################################
+
+# Provide links to any relevant tickets, articles or other resources ###
+Ticket
+#+END_SRC
