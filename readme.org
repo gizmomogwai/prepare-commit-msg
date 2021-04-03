@@ -1,12 +1,13 @@
 * prepare-commit-msg
+prepare-commit-msg is a regular git hook that replaces #{} expressions
+in the .git_commit_msg.txt file.
+
 ** Installation
-- dub build 
-- put prepare-commit-msg to your path
-- run prepare-commit-msg install in any git repository
+- dub build
+- cp out/exe/prepare-commit-msg to your path
+- run =prepare-commit-msg install= in any git repository
 - Prepare a custom local or global .git_commit_msg.txt file containing `#{}` replacements
-  - replacements can contain either:
-    - env[name] - for environment variable replacement
-    - command - for command replacements
+  - replacements are allways shell replacementsreplacements
 
 ** Example
 #+NAME: example .git_commit_msg file
@@ -17,5 +18,5 @@
 # Explain why this change is being made ################################
 
 # Provide links to any relevant tickets, articles or other resources ###
-Ticket
+Issue:
 #+END_SRC
