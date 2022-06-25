@@ -48,6 +48,8 @@ int main(string[] args)
             .toFile(file);
         // dfmt on
         return 0;
+    case "message":
+        return 0;
     default:
         return 1;
     }
