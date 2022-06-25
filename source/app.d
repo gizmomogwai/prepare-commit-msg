@@ -19,6 +19,10 @@ string replaceShellCommand(Captures!(string) m)
 int main(string[] args)
 {
     stderr.writeln(args);
+    if (args.length != 2 && args.length != 4) {
+        stderr.writeln("Usage: %s install|commitType ...".format(args[0]));
+        return 1;
+    }
     auto file = args[1];
     if (file == "install")
     {
@@ -28,9 +32,9 @@ int main(string[] args)
             throw new Exception("cannot get path to %s".format(args[0]));
         }
 
-        auto cmd = ["cp", path.output.strip, ".git/hooks/"];
-        writeln(cmd);
-        return execute(cmd).status;
+        auto cmd = ["ln", "-s", path.output.strip, ".git/hooks/"];
+        cmd.writeln;
+        return cmd.execute.status;
     }
 
     auto commitType = args[2];
