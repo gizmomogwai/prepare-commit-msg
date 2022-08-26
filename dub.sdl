@@ -1,7 +1,7 @@
 name "prepare-commit-msg"
 description "Simple dlang program to prepare a informative commit message."
 authors "Christian Koestlin"
-copyright "Copyright (C) 2019, Christian Koestlin"
+copyright "Copyright (c) 2019, Christian Koestlin"
 license "MIT"
 
-targetPath "out/exe"
+targetPath "out/main"
