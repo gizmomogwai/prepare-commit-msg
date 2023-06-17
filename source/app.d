@@ -19,7 +19,8 @@ string replaceShellCommand(Captures!(string) m)
 int main(string[] args)
 {
     stderr.writeln(args);
-    if (args.length != 2 && args.length != 4) {
+    if (args.length != 2 && args.length != 4)
+    {
         stderr.writeln("Usage: %s install|commitType ...".format(args[0]));
         return 1;
     }
